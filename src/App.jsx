@@ -22,14 +22,6 @@ const skills = [
 ];
 const projects = [
   {
-    title: "Site de Viagem",
-    desc: "Plataforma web para exploração de destinos turísticos com interface intuitiva, design responsivo e foco total na experiência do usuário.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    number: "01",
-    link: "https://github.com/viniciuspr27",
-  },
-
-  {
     title: "TripWay EX",
     desc: "Projeto colaborativo desenvolvido em equipe com foco em turismo, experiência do usuário e desenvolvimento web moderno.",
     tags: ["React", "JavaScript", "GitHub"],
