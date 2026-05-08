@@ -34,13 +34,13 @@ const experiences = [
   {
     role: "Produtor de Conferências",
     company: "Eventos Corporativos",
-    period: "2024 — Atual",
+    period: "2026 — Atual",
     desc: "Planejamento, organização e execução de eventos de grande porte, coordenando equipes e garantindo excelência na entrega.",
   },
   {
     role: "Especialista em Produção",
     company: "TourService",
-    period: "2019 — 2024",
+    period: "2024 — 2026",
     desc: "Logística e organização de produtos e experiências para clientes, com foco em qualidade, prazo e satisfação.",
   },
 ];
