@@ -25,7 +25,7 @@ const projects = [
     title: "TripWay EX",
     desc: "Projeto colaborativo desenvolvido em equipe com foco em turismo, experiência do usuário e desenvolvimento web moderno.",
     tags: ["React", "JavaScript", "GitHub"],
-    number: "02",
+    number: "01",
     link: "https://github.com/DiegoRodri1/TripWay-EX-CP",
   },
 ];
