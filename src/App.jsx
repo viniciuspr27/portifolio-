@@ -20,16 +20,23 @@ const skills = [
   { name: "SQL", level: 60 },
   { name: "Git", level: 65 },
 ];
-
 const projects = [
   {
     title: "Site de Viagem",
     desc: "Plataforma web para exploração de destinos turísticos com interface intuitiva, design responsivo e foco total na experiência do usuário.",
     tags: ["HTML", "CSS", "JavaScript"],
     number: "01",
+    link: "https://github.com/viniciuspr27",
+  },
+
+  {
+    title: "TripWay EX",
+    desc: "Projeto colaborativo desenvolvido em equipe com foco em turismo, experiência do usuário e desenvolvimento web moderno.",
+    tags: ["React", "JavaScript", "GitHub"],
+    number: "02",
+    link: "https://github.com/DiegoRodri1/TripWay-EX-CP",
   },
 ];
-
 const experiences = [
   {
     role: "Produtor de Conferências",
@@ -489,7 +496,20 @@ export default function App() {
                     {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
                   </div>
                 </div>
-                <span className="project-arrow">→</span>
+                <a
+  href={p.link}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="project-arrow"
+  style={{
+    textDecoration: "none",
+    color: C.accent,
+    fontSize: 24,
+    fontWeight: "bold",
+  }}
+>
+  →
+</a>
               </div>
             </FadeIn>
           ))}
