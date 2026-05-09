@@ -126,7 +126,7 @@ export default function App() {
 
   return (
     <div style={{ background: C.bg, color: C.text, fontFamily: "'Georgia', serif", overflowX: "hidden" }}>
-      <style>{`
+      <styl>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -249,6 +249,72 @@ export default function App() {
           gap: 24px;
           align-items: start;
         }
+             align-items: start;
+        }
+      @media (max-width: 900px) {
+
+  nav {
+    padding: 20px !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+
+  section {
+    padding: 90px 20px !important;
+  }
+
+  h1 {
+    font-size: 58px !important;
+    line-height: 1 !important;
+  }
+
+  h2 {
+    font-size: 38px !important;
+  }
+
+  .project-row {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+  }
+
+  .info-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  footer {
+    flex-direction: column !important;
+    gap: 12px !important;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+
+  h1 {
+    font-size: 42px !important;
+  }
+
+  h2 {
+    font-size: 30px !important;
+  }
+
+  p {
+    font-size: 14px !important;
+  }
+
+  .btn-primary,
+  .btn-outline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .contact-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
       `}</style>
 
       {/* NAV */}
