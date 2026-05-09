@@ -23,7 +23,7 @@ const skills = [
 
 const projects = [
   {
-    title: "Site de Viagem",
+    title: "TripWay EX",
     desc: "Plataforma web para exploração de destinos turísticos com interface intuitiva, design responsivo e foco total na experiência do usuário.",
     tags: ["HTML", "CSS", "JavaScript"],
     number: "01",
@@ -40,7 +40,7 @@ const experiences = [
   {
     role: "Especialista em Produção",
     company: "TourService",
-    period: "2019 — 2024",
+    period: "2024 — 2026",
     desc: "Logística e organização de produtos e experiências para clientes, com foco em qualidade, prazo e satisfação.",
   },
 ];
