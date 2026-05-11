@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 
 const C = {
@@ -20,7 +21,6 @@ const skills = [
   { name: "SQL", level: 60 },
   { name: "Git", level: 65 },
 ];
-
 const projects = [
   {
     title: "TripWay EX",
@@ -30,7 +30,6 @@ const projects = [
     link: "https://github.com/DiegoRodri1/TripWay-EX-CP",
   },
 ];
-
 const experiences = [
   {
     role: "Produtor de Conferências",
@@ -98,6 +97,7 @@ function SkillBar({ name, level, delay }) {
 export default function App() {
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -115,6 +115,7 @@ export default function App() {
   }, []);
 
   const scrollTo = (id) => {
+    setMenuOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
@@ -152,138 +153,120 @@ export default function App() {
           0%,100% { transform: translateY(0); }
           50% { transform: translateY(10px); }
         }
-        .nav-link {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px;
-          font-weight: 400;
-          letter-spacing: 0.5px;
-          color: #8a8880;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 4px 0;
-          position: relative;
-          transition: color 0.3s;
-        }
+        .nav-link { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.5px; color: #8a8880; background: none; border: none; cursor: pointer; padding: 4px 0; position: relative; transition: color 0.3s; }
         .nav-link:hover { color: #1a1a18; }
         .nav-link.active { color: #1a1a18; }
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: 0; left: 0;
-          width: 0; height: 1px;
-          background: #c9a96e;
-          transition: width 0.3s;
-        }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: #c9a96e; transition: width 0.3s; }
         .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-        .btn-primary {
-          display: inline-block;
-          padding: 14px 36px;
-          background: #1a1a18;
-          color: #fafaf9;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px;
-          font-weight: 500;
-          letter-spacing: 1px;
-          border: none;
-          cursor: pointer;
-          transition: background 0.3s, transform 0.3s;
-          text-decoration: none;
-        }
+        .btn-primary { display: inline-block; padding: 14px 36px; background: #1a1a18; color: #fafaf9; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 1px; border: none; cursor: pointer; transition: background 0.3s, transform 0.3s; text-decoration: none; }
         .btn-primary:hover { background: #c9a96e; transform: translateY(-2px); }
-        .btn-outline {
-          display: inline-block;
-          padding: 13px 36px;
-          background: transparent;
-          color: #1a1a18;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px;
-          font-weight: 500;
-          letter-spacing: 1px;
-          border: 1px solid #e8e6e1;
-          cursor: pointer;
-          transition: all 0.3s;
-          text-decoration: none;
-        }
+        .btn-outline { display: inline-block; padding: 13px 36px; background: transparent; color: #1a1a18; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 1px; border: 1px solid #e8e6e1; cursor: pointer; transition: all 0.3s; text-decoration: none; }
         .btn-outline:hover { border-color: #c9a96e; color: #c9a96e; transform: translateY(-2px); }
-        .tag {
-          display: inline-block;
-          padding: 5px 14px;
-          background: #f0ede8;
-          color: #8a8880;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          border-radius: 2px;
-        }
-        .project-row {
-          padding: 48px 0;
-          border-top: 1px solid #e8e6e1;
-          display: grid;
-          grid-template-columns: 80px 1fr 40px;
-          gap: 40px;
-          align-items: center;
-          transition: all 0.4s ease;
-          cursor: default;
-        }
+        .tag { display: inline-block; padding: 5px 14px; background: #f0ede8; color: #8a8880; font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; border-radius: 2px; }
+        .project-row { padding: 48px 0; border-top: 1px solid #e8e6e1; display: grid; grid-template-columns: 80px 1fr 40px; gap: 40px; align-items: center; transition: all 0.4s ease; cursor: default; }
         .project-row:hover { padding-left: 12px; }
         .project-row:hover .project-arrow { color: #c9a96e; transform: translateX(6px); }
         .project-arrow { transition: all 0.3s; color: #e8e6e1; font-size: 24px; }
-        .contact-row {
-          display: flex;
-          align-items: center;
-          padding: 28px 0;
-          border-bottom: 1px solid #e8e6e1;
-          text-decoration: none;
-          color: #1a1a18;
-          transition: all 0.3s;
-        }
+        .contact-row { display: flex; align-items: center; padding: 28px 0; border-bottom: 1px solid #e8e6e1; text-decoration: none; color: #1a1a18; transition: all 0.3s; }
         .contact-row:hover { padding-left: 10px; }
         .contact-row:hover .contact-arrow { transform: translateX(8px); color: #c9a96e; }
         .contact-arrow { transition: all 0.3s; color: #8a8880; font-size: 20px; margin-left: auto; }
-        .info-row {
-          padding: 22px 0;
-          border-bottom: 1px solid #e8e6e1;
-          display: grid;
-          grid-template-columns: 120px 1fr;
-          gap: 24px;
-          align-items: start;
+        .info-row { padding: 22px 0; border-bottom: 1px solid #e8e6e1; display: grid; grid-template-columns: 120px 1fr; gap: 24px; align-items: start; }
+        .hero-stats { position: absolute; right: 60px; bottom: 90px; display: flex; gap: 48px; animation: fadeIn 1s ease 1.2s both; }
+        .hero-buttons { display: flex; gap: 14px; margin-top: 48px; animation: fadeUp 1s ease 0.7s both; flex-wrap: wrap; }
+        .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; font-size: 22px; color: #1a1a18; }
+
+        @media (max-width: 900px) {
+          .hero-stats { display: none !important; }
+          section { padding: 90px 24px !important; }
+          h2 { font-size: 36px !important; }
+          .project-row { grid-template-columns: 1fr !important; gap: 16px !important; }
+          .info-row { grid-template-columns: 1fr !important; }
+          footer { flex-direction: column !important; gap: 12px !important; text-align: center; }
+          .sobre-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+          .exp-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+          .skills-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+        }
+
+        @media (max-width: 600px) {
+          h1 { font-size: 52px !important; line-height: 1 !important; letter-spacing: -1px !important; }
+          h2 { font-size: 30px !important; }
+          p { font-size: 14px !important; }
+          .hero-buttons { flex-direction: column; }
+          .hero-buttons .btn-primary, .hero-buttons .btn-outline { width: 100%; text-align: center; display: block; }
+          .contact-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+          .contact-arrow { margin-left: 0 !important; }
+          .nav-desktop { display: none !important; }
+          .mobile-menu-btn { display: block !important; }
+          .nav-inner { padding: 18px 20px !important; }
         }
       `}</style>
 
       {/* NAV */}
       <nav style={{
         position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
-        padding: "22px 60px",
-        display: "flex", justifyContent: "space-between", alignItems: "center",
         background: scrolled ? "rgba(250,250,249,0.94)" : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
         borderBottom: scrolled ? `1px solid ${C.border}` : "1px solid transparent",
         transition: "all 0.5s ease",
       }}>
-        <button onClick={() => scrollTo("home")} style={{
-          background: "none", border: "none", cursor: "pointer",
-          fontFamily: "'Cormorant Garamond', serif",
-          fontSize: 20, fontWeight: 600, color: C.text, letterSpacing: 0.5,
+        <div className="nav-inner" style={{
+          padding: "22px 60px",
+          display: "flex", justifyContent: "space-between", alignItems: "center",
         }}>
-          Vinicius<span style={{ color: C.accent }}>.</span>
-        </button>
-        <div style={{ display: "flex", gap: 36, alignItems: "center" }}>
-          {navItems.map(item => (
-            <button
-              key={item.id}
-              className={`nav-link${activeSection === item.id ? " active" : ""}`}
-              onClick={() => scrollTo(item.id)}
-            >
-              {item.label}
-            </button>
-          ))}
-          <a href="mailto:viniciuspr2006@gmail.com" className="btn-primary" style={{ padding: "10px 24px", fontSize: 12 }}>
-            Falar comigo
-          </a>
+          <button onClick={() => scrollTo("home")} style={{
+            background: "none", border: "none", cursor: "pointer",
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: 20, fontWeight: 600, color: C.text, letterSpacing: 0.5,
+          }}>
+            Vinicius<span style={{ color: C.accent }}>.</span>
+          </button>
+
+          {/* Desktop nav */}
+          <div className="nav-desktop" style={{ display: "flex", gap: 36, alignItems: "center" }}>
+            {navItems.map(item => (
+              <button
+                key={item.id}
+                className={`nav-link${activeSection === item.id ? " active" : ""}`}
+                onClick={() => scrollTo(item.id)}
+              >
+                {item.label}
+              </button>
+            ))}
+            <a href="mailto:viniciuspr2006@gmail.com" className="btn-primary" style={{ padding: "10px 24px", fontSize: 12 }}>
+              Falar comigo
+            </a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button className="mobile-menu-btn" onClick={() => setMenuOpen(!menuOpen)}>
+            {menuOpen ? "✕" : "☰"}
+          </button>
         </div>
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div style={{
+            background: "rgba(250,250,249,0.98)",
+            borderTop: `1px solid ${C.border}`,
+            padding: "20px 24px",
+            display: "flex", flexDirection: "column", gap: 20,
+          }}>
+            {navItems.map(item => (
+              <button
+                key={item.id}
+                className="nav-link"
+                onClick={() => scrollTo(item.id)}
+                style={{ textAlign: "left", fontSize: 15 }}
+              >
+                {item.label}
+              </button>
+            ))}
+            <a href="mailto:viniciuspr2006@gmail.com" className="btn-primary" style={{ textAlign: "center", marginTop: 8 }}>
+              Falar comigo
+            </a>
+          </div>
+        )}
       </nav>
 
       {/* HERO */}
@@ -295,43 +278,15 @@ export default function App() {
         position: "relative", overflow: "hidden",
       }}>
         {/* Decorative circles */}
-        <div style={{
-          position: "absolute", top: "8%", right: "-8%",
-          width: 560, height: 560, borderRadius: "50%",
-          border: `1px solid ${C.border}`,
-          animation: "float 14s ease-in-out infinite",
-          pointerEvents: "none",
-        }} />
-        <div style={{
-          position: "absolute", top: "14%", right: "4%",
-          width: 360, height: 360, borderRadius: "50%",
-          border: `1px solid ${C.accent}2a`,
-          animation: "floatReverse 11s ease-in-out infinite",
-          pointerEvents: "none",
-        }} />
-        <div style={{
-          position: "absolute", top: "22%", right: "22%",
-          width: 10, height: 10, borderRadius: "50%",
-          background: C.accent,
-          animation: "float 5s ease-in-out infinite",
-          pointerEvents: "none",
-        }} />
-        <div style={{
-          position: "absolute", top: "40%", right: "38%",
-          width: 5, height: 5, borderRadius: "50%",
-          background: C.border,
-          animation: "floatReverse 7s ease-in-out infinite",
-          pointerEvents: "none",
-        }} />
+        <div style={{ position: "absolute", top: "8%", right: "-8%", width: 560, height: 560, borderRadius: "50%", border: `1px solid ${C.border}`, animation: "float 14s ease-in-out infinite", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "14%", right: "4%", width: 360, height: 360, borderRadius: "50%", border: `1px solid ${C.accent}2a`, animation: "floatReverse 11s ease-in-out infinite", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "22%", right: "22%", width: 10, height: 10, borderRadius: "50%", background: C.accent, animation: "float 5s ease-in-out infinite", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "40%", right: "38%", width: 5, height: 5, borderRadius: "50%", background: C.border, animation: "floatReverse 7s ease-in-out infinite", pointerEvents: "none" }} />
 
         {/* Label */}
         <div style={{ animation: "fadeUp 1s ease 0.2s both", display: "flex", alignItems: "center", gap: 14, marginBottom: 36 }}>
           <div style={{ width: 40, height: 1, background: C.accent }} />
-          <span style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: 12, letterSpacing: 3, color: C.accent,
-            textTransform: "uppercase", fontWeight: 500,
-          }}>
+          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 12, letterSpacing: 3, color: C.accent, textTransform: "uppercase", fontWeight: 500 }}>
             Desenvolvedor · Estudante FIAP · São Paulo
           </span>
         </div>
@@ -339,7 +294,7 @@ export default function App() {
         {/* Name */}
         <h1 style={{
           fontFamily: "'Cormorant Garamond', serif",
-          fontSize: "clamp(64px, 9vw, 118px)",
+          fontSize: "clamp(52px, 9vw, 118px)",
           fontWeight: 300, lineHeight: 0.92,
           letterSpacing: -3,
           animation: "fadeUp 1s ease 0.35s both",
@@ -360,17 +315,13 @@ export default function App() {
           Transformando lógica em experiências digitais. Apaixonado por tecnologia, código limpo e soluções que realmente importam.
         </p>
 
-        <div style={{ display: "flex", gap: 14, marginTop: 48, animation: "fadeUp 1s ease 0.7s both" }}>
+        <div className="hero-buttons">
           <button className="btn-primary" onClick={() => scrollTo("projetos")}>Ver Projetos</button>
           <button className="btn-outline" onClick={() => scrollTo("sobre")}>Sobre mim</button>
         </div>
 
-        {/* Stats */}
-        <div style={{
-          position: "absolute", right: 60, bottom: 90,
-          display: "flex", gap: 48,
-          animation: "fadeIn 1s ease 1.2s both",
-        }}>
+        {/* Stats — hidden on mobile via CSS */}
+        <div className="hero-stats">
           {[
             { n: "06+", label: "Tecnologias" },
             { n: "ADS", label: "FIAP" },
@@ -384,18 +335,14 @@ export default function App() {
         </div>
 
         {/* Scroll line */}
-        <div style={{
-          position: "absolute", bottom: 0, left: 60,
-          display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
-          animation: "fadeIn 1s ease 1.5s both",
-        }}>
+        <div style={{ position: "absolute", bottom: 0, left: 60, display: "flex", flexDirection: "column", alignItems: "center", gap: 10, animation: "fadeIn 1s ease 1.5s both" }}>
           <div style={{ width: 1, height: 80, background: `linear-gradient(${C.accent}, transparent)` }} />
         </div>
       </section>
 
       {/* SOBRE */}
       <section id="sobre" style={{ padding: "140px 60px", background: C.surface }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
+        <div className="sobre-grid" style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100, alignItems: "start" }}>
           <FadeIn>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 24 }}>
               <div style={{ width: 40, height: 1, background: C.accent }} />
@@ -448,15 +395,11 @@ export default function App() {
               O que estou<br /><em style={{ color: C.accent }}>dominando</em>
             </h2>
           </FadeIn>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 100px" }}>
+          <div className="skills-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 100px" }}>
             {skills.map((s, i) => <SkillBar key={s.name} {...s} delay={i * 100} />)}
           </div>
           <FadeIn delay={300}>
-            <div style={{
-              marginTop: 60, padding: "28px 32px",
-              background: C.surface, border: `1px solid ${C.border}`,
-              display: "flex", alignItems: "center", gap: 20,
-            }}>
+            <div style={{ marginTop: 60, padding: "28px 32px", background: C.surface, border: `1px solid ${C.border}`, display: "flex", alignItems: "center", gap: 20 }}>
               <div style={{ width: 3, height: 44, background: C.accent, flexShrink: 0 }} />
               <p style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: C.muted, lineHeight: 1.8, fontWeight: 300 }}>
                 Em constante evolução. Cada projeto é uma oportunidade de aprender algo novo — seja uma tecnologia, um padrão ou uma boa prática de segurança.
@@ -490,7 +433,7 @@ export default function App() {
                     {p.tags.map(t => <span key={t} className="tag">{t}</span>)}
                   </div>
                 </div>
-                <span className="project-arrow">→</span>
+                <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-arrow" style={{ textDecoration: "none", color: C.accent, fontSize: 24, fontWeight: "bold" }}>→</a>
               </div>
             </FadeIn>
           ))}
@@ -509,7 +452,7 @@ export default function App() {
 
       {/* EXPERIÊNCIA */}
       <section id="experiencia" style={{ padding: "140px 60px", background: C.bg }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100 }}>
+        <div className="exp-grid" style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 100 }}>
           <FadeIn>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 20 }}>
               <div style={{ width: 40, height: 1, background: C.accent }} />
@@ -524,7 +467,7 @@ export default function App() {
             {[...experiences, {
               role: "Estudante de ADS",
               company: "FIAP — São Paulo",
-              period: "2026 — Atual",
+              period: "2024 — Atual",
               desc: null,
               tags: ["React", "Python", "Java", "Node.js", "SQL"],
             }].map((exp, i, arr) => (
@@ -591,7 +534,7 @@ export default function App() {
           Vinicius Pacheco Ruiz<span style={{ color: C.accent }}>.</span>
         </span>
         <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: C.muted, letterSpacing: 2 }}>
-          © 2026 · São Paulo, Brasil
+          © 2025 · São Paulo, Brasil
         </span>
       </footer>
     </div>
