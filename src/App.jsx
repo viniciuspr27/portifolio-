@@ -24,9 +24,10 @@ const skills = [
 const projects = [
   {
     title: "TripWay EX",
-    desc: "Plataforma web para exploração de destinos turísticos com interface intuitiva, design responsivo e foco total na experiência do usuário.",
-    tags: ["HTML", "CSS", "JavaScript"],
+    desc: "Projeto colaborativo desenvolvido em equipe com foco em turismo, experiência do usuário e desenvolvimento web moderno.",
+    tags: ["React", "JavaScript", "GitHub"],
     number: "01",
+    link: "https://github.com/DiegoRodri1/TripWay-EX-CP",
   },
 ];
 
@@ -34,7 +35,7 @@ const experiences = [
   {
     role: "Produtor de Conferências",
     company: "Eventos Corporativos",
-    period: "2024 — Atual",
+    period: "2026 — Atual",
     desc: "Planejamento, organização e execução de eventos de grande porte, coordenando equipes e garantindo excelência na entrega.",
   },
   {
@@ -590,7 +591,7 @@ export default function App() {
           Vinicius Pacheco Ruiz<span style={{ color: C.accent }}>.</span>
         </span>
         <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 11, color: C.muted, letterSpacing: 2 }}>
-          © 2025 · São Paulo, Brasil
+          © 2026 · São Paulo, Brasil
         </span>
       </footer>
     </div>
